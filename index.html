@@ -174,7 +174,7 @@
             <td>근성2</td>
             <td>배수의 진<br>간파</td>
             <td>배수의 진<br>회피 거리UP</td>
-            <td>간파<br>간파</td>
+            <td>간파2</td>
         </tr>
         <tr>
             <td><img src="./mhq/puke.png" width="24"><br>푸케푸케</td>
@@ -304,6 +304,7 @@
           </td>
       </tr>
         </table>
+        <div class="toast" id="toast">데이터가 클립보드에 복사되었습니다.</div>
 
      <script>
         var table = document.getElementById("equipment-table");
@@ -321,7 +322,7 @@
         
         function shareSelectedData(){
             // 선택된 데이터를 공유 URL에 추가
-            var shareText = "선택 된 장비의 스킬 구성은 다음과 같습니다." + 
+            var shareText = "MHNOW 빌더를 통해 구성된 스킬은 다음과 같습니다.\n\n" + 
                             "무기: " + selectedWeapon.textContent + "\n" +
                             "헬멧: " + selectedHelmet.textContent + "\n" +
                             "방어구: " + selectedArmor.textContent + "\n" +
