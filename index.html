@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monster Hunter Now - Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .table-wrapper {
+    display: flex;
+    justify-content: center; /* 가로 가운데 정렬을 위해 추가 */
+    margin: 0 auto;
+    align-content: center;
+}
+
+        table {
+            border-collapse: collapse;
+            width: 55%;
+            background-color: white;
+            box-shadow: 0px 0px 5px 0px #888888;
+        }
+
+        table, th, td {
+            border: 1px solid #dddddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .share-button {
+            display: inline-block;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 123, 255, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+          /* #selected-data-table의 크기 조절 */
+    #selected-data-table {
+        height: 40%; /* 변경된 너비 설정 */
+        width: 30%;
+        margin-right: 20px; /* 오른쪽 마진 추가 (셀 간격 조절) */
+    }
+
+    /* 스킬 구성 섹션 스타일 수정 */
+    h2 {
+        text-align: center;
+        margin-top: 20px; /* 섹션 상단 마진 추가 */
+    }
+    #equipment-table {
+        margin-right: 20px; /* 변경된 마진 설정 */
+
+    }
+
+
+    /* 스킬 구성 섹션 스타일 수정 */
+    h2 {
+        text-align: center;
+        margin-top: 20px; /* 섹션 상단 마진 추가 */
+    }
+    </style>
+</head>
+<body>
+    <h1>Monster Hunter Now - Builder</h1>
+    
+    <!-- 테이블 래퍼 추가 -->
+    <div class="table-wrapper">
+        <table id="equipment-table">
+          <tr>
+            <th>/</th>
+            <th><img src="./mhq/weapon.png" width="24"></th>
+            <th><img src="./mhq/helm.png" width="24"></th>
+            <th><img src="./mhq/mail.png" width="24"></th>
+            <th><img src="./mhq/gloves.png" width="24"></th>
+            <th><img src="./mhq/belt.png" width="24"></th>
+            <th><img src="./mhq/greaves.png" width="24"></th>
+        </tr>
+        <tr>
+            <td><img src="./mhq/alloy.png" width="24"><br>광석</td>
+            <td>독 내성2</td>
+            <td><div>⦰</div></td>
+            <td><div>⦰</div></td>
+            <td><div>⦰</div></td>
+            <td><div>⦰</div></td>
+            <td><div>⦰</div></td>
+        </tr>
+     
+        <tr>
+            <td><img src="./mhq/leather.png" width="24"><br>가죽</td>
+            <td>⦰</td>
+            <td>간파<br>얼음 내성</td>
+            <td>공격<br>불 내성</td>
+            <td>방어<br>번개 내성</td>
+            <td>체력 증강<br>불 내성</td>
+            <td>독 내성<br>마비 내성 </td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/g-jagr.png" width="24"><br>쟈그라스</td>
+            <td>체력 증강2</td>
+            <td>몸통 강화2</td>
+            <td>후발 주자2</td>
+            <td>몸통 강화<br>물속성 공격 강화</td>
+            <td>불굴<br>후발 주자</td>
+            <td>물속성 공격 강화2</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/kulu.png" width="24"><br>쿠루루야크</td>
+            <td>불굴2</td>
+            <td>록온<br>간파</td>
+            <td>근성2</td>
+            <td>배수의 진<br>간파</td>
+            <td>배수의 진<br>회피 거리UP</td>
+            <td>간파<br>간파</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/puke.png" width="24"><br>푸케푸케</td>
+            <td>기습</td>
+            <td>집중<br>체력증강2</td>
+            <td>독 내성<br>집중</td>
+            <td>독속성 강화<br>독 내성</td>
+            <td>독속성 강화2</td>
+            <td>체력 증강<br>독 내성</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/barr.png" width="24"><br>볼보로스</td>
+            <td>방어2</td>
+            <td>방어<br>공격적인 방어</td>
+            <td>공격적인 방어2</td>
+            <td>가드 성능2</td>
+            <td>방어<br>가드 성능</td>
+            <td>반동 경감<br>방어2</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/g-girr.png" width="24"><br>기르오스</td>
+            <td>기습</td>
+            <td>마비 내성2</td>
+            <td>마비 내성<br>기습</td>
+            <td>기습<br>귀마개</td>
+            <td>마비속성 강화<br>귀마개2</td>
+            <td>마비속성 강화2</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/tobi.png" width="24"><br>토비 카가치</td>
+            <td>회피 거리UP</td>
+            <td>장전 속도<br>저스트 회피 강화</td>
+            <td>회피 거리UP<br>번개속성 공격 강화</td>
+            <td>회피 거리UP 2<br>저스트 회피 강화</td>
+            <td>번개속성 공격 강화<br>번개속성 공격강화</td>
+            <td>저스트 회피 강화<br>번개 내성</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/paol.png" width="24"><br>파오우르무</td>
+            <td>정령의 가호2</td>
+            <td>특수 게이지 가속<br>풍압 내성</td>
+            <td>반동 경감2</td>
+            <td>특수 게이지 가속2<br>정령의 가호</td>
+            <td>정령의 가호<br>정령의 가호</td>
+            <td>풍압 내성<br>풍압 내성</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/jyur.png" width="24"><br>쥬라도토스</td>
+            <td>배수의 진</td>
+            <td>물 내성<br>배수의 진</td>
+            <td>물속성 공격 강화<br>배수의 진</td>
+            <td>물속성 공격 강화2</td>
+            <td>물 내성2</td>
+            <td>집중2<br>배수의 진</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/anja.png" width="24"><br>안쟈나프</td>
+            <td>후발 주자</td>
+            <td>불속성 공격 강화2<br>불 내성</td>
+            <td>특수 스킬 위력 상승2</td>
+            <td>불속성 공격 강화2</td>
+            <td>불 내성<br>특수 스킬 위력 상승</td>
+            <td>완전 충전2</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/rathi.png" width="24"><br>리오 레이아</td>
+            <td>체력 증강2</td>
+            <td>체력 증강2<br>독속성 강화</td>
+            <td>독속성 강화2</td>
+            <td>락온<br>연격2</td>
+            <td>독 내성<br>연격</td>
+            <td>체력 증강2</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/ratha.png" width="24"><br>리오 레우스</td>
+            <td>귀마개</td>
+            <td>공격2<br>불속성 공격 강화</td>
+            <td>약점 특효2</td>
+            <td>불 내성<br>공격</td>
+            <td>집중<br>불속성 공격 강화</td>
+            <td>불 내성<br>약점 특효</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/legi.png" width="24"><br>레이기에나</td>
+            <td>정령의 가호2</td>
+            <td>정령의 가호<br>얼음속성 공격 강화</td>
+            <td>정령의 가호2<br>풍압 내성2</td>
+            <td>장전 속도2</td>
+            <td>얼음속성 공격 강화<br>풍압 내성</td>
+            <td>장전 속도<br>얼음 내성</td>
+        </tr>
+        <tr>
+            <td><img src="./mhq/diab.png" width="24"><br>디아블로스</td>
+            <td>재난대처능력</td>
+            <td>재난대처능력2</td>
+            <td>KO술<br>재난대처능력</td>
+            <td>재난대처능력2<br>파괴왕</td>
+            <td>파괴왕<br>공격적인 방어</td>
+            <td>KO술<br>파괴왕</td>
+        </tr>
+        <!-- 나머지 아이템 행 추가 -->
+        </table>
+
+        <table id="selected-data-table">
+          <tr>
+            <th>무기</th>
+            <th>헬멧</th>
+            <th>방어구</th>
+            <th>장갑</th>
+            <th>허리띠</th>
+            <th>신발</th>
+        </tr>
+        <tr>
+            <td><span id="selected-weapon"></span></td>
+            <td><span id="selected-helmet"></span></td>
+            <td><span id="selected-armor"></span></td>
+            <td><span id="selected-gloves"></span></td>
+            <td><span id="selected-belt"></span></td>
+            <td><span id="selected-shoes"></span></td>
+        </tr>
+        <tr>
+          <td colspan="6"> <!-- colspan을 사용하여 한 행에 모든 버튼을 배치 -->
+              <div class="button-container">
+                  <button onclick="clearSelectedData()">초기화</button>
+                  <button class="share-button" onclick="shareSelectedData()">장비 세트 공유</button>
+              </div>
+          </td>
+      </tr>
+        </table>
+
+     <script>
+        var table = document.getElementById("equipment-table");
+        var selectedWeapon = document.getElementById("selected-weapon");
+        var selectedHelmet = document.getElementById("selected-helmet");
+        var selectedArmor = document.getElementById("selected-armor");
+        var selectedGloves = document.getElementById("selected-gloves");
+        var selectedBelt = document.getElementById("selected-belt");
+        var selectedShoes = document.getElementById("selected-shoes");
+        var toast = document.getElementById("toast");
+
+        // 선택된 아이템을 저장하는 배열
+        var selectedItems = [];
+        var ShareUrl = "/result=";
+        
+        function shareSelectedData(){
+            // 선택된 데이터를 공유 URL에 추가
+            var shareText = "무기: " + selectedWeapon.textContent + "\n" +
+                            "헬멧: " + selectedHelmet.textContent + "\n" +
+                            "방어구: " + selectedArmor.textContent + "\n" +
+                            "장갑: " + selectedGloves.textContent + "\n" +
+                            "허리띠: " + selectedBelt.textContent + "\n" +
+                            "신발: " + selectedShoes.textContent;
+
+            // 클립보드에 복사
+            var textArea = document.createElement("textarea");
+            textArea.value = shareText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            // 토스트 메시지 표시
+            toast.style.opacity = "1";
+            setTimeout(function() {
+                toast.style.opacity = "0";
+            }, 2000); // 2초 후에 투명하게 만들어서 사라지도록 설정
+        }
+
+        function clearSelectedData() {
+            selectedWeapon.textContent = "";
+            selectedHelmet.textContent = "";
+            selectedArmor.textContent = "";
+            selectedGloves.textContent = "";
+            selectedBelt.textContent = "";
+            selectedShoes.textContent = "";
+            selectedItems = [];
+        }
+
+        table.addEventListener("click", function(event) {
+            var cell = event.target;
+            if (cell.tagName === "TD") {
+                var columnIndex = cell.cellIndex;
+                var selectedItem = cell.innerText;
+
+                // 첫 번째 열은 몬스터명이므로 해당 열은 무시
+                if (columnIndex !== 0) {
+                    // 선택된 아이템을 해당 열의 데이터로 업데이트
+                    switch (columnIndex) {
+                        case 1:
+                            selectedWeapon.innerHTML  = selectedItem.replace(/\n/g, "<br>");
+                            break;
+                        case 2:
+                            selectedHelmet.innerHTML  = selectedItem.replace(/\n/g, "<br>");
+                            break;
+                        case 3:
+                            selectedArmor.innerHTML  = selectedItem.replace(/\n/g, "<br>");
+                            break;
+                        case 4:
+                            selectedGloves.innerHTML  = selectedItem.replace(/\n/g, "<br>");
+                            break;
+                        case 5:
+                            selectedBelt.innerHTML  = selectedItem.replace(/\n/g, "<br>");
+                            break;
+                        case 6:
+                            selectedShoes.innerHTML = selectedItem.replace(/\n/g, "<br>");
+                            break;
+                    }
+
+                    // 선택된 아이템을 배열에 추가 또는 업데이트
+                    selectedItems[columnIndex] = selectedItem;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
