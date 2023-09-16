@@ -321,12 +321,13 @@
         
         function shareSelectedData(){
             // 선택된 데이터를 공유 URL에 추가
-            var shareText = "무기: " + selectedWeapon.textContent + "\n" +
+            var shareText = "선택 된 장비의 스킬 구성은 다음과 같습니다." + 
+                            "무기: " + selectedWeapon.textContent + "\n" +
                             "헬멧: " + selectedHelmet.textContent + "\n" +
                             "방어구: " + selectedArmor.textContent + "\n" +
                             "장갑: " + selectedGloves.textContent + "\n" +
                             "허리띠: " + selectedBelt.textContent + "\n" +
-                            "신발: " + selectedShoes.textContent;
+                            "신발: " + selectedShoes.textContent +"\n\nhttps://blog.naver.com/huntnow";
 
             // 클립보드에 복사
             var textArea = document.createElement("textarea");
