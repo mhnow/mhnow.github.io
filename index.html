@@ -17,7 +17,9 @@
         h3 {
             text-align: center;
         }
-
+        .highlight-text {
+            color: red; /* 원하는 텍스트 색상 지정 */
+        }
         .table-wrapper {
             display: flex;
             justify-content: center;
@@ -43,8 +45,27 @@
         td {
             padding: 8px;
             text-align: center;
+        }   /* 드롭다운 스타일링 */
+        .filter-wrapper { 
+            margin: 20px 0;
+            text-align: center;
         }
 
+        label {
+            padding-left: 4%;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        select {
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
         th {
             background-color: #f2f2f2;
         }
@@ -68,7 +89,10 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
+      /* 스타일링을 위한 CSS */
+      .highlight {
+            background-color: lightblue; /* 원하는 배경색 지정 */
+        }
         button:hover {
             background-color: #0056b3;
         }
@@ -144,8 +168,18 @@
 
 <body>
     <h1>Monster Hunter Now - Builder</h1>
-    <h3>https://blog.naver.com/huntnow</h3>
-
+    <h3>https://blog.naver.com/huntnow</h3>   
+    
+    <label for="filter-select">필터:</label>
+    <select id="filter-select">
+        <option>스킬 선택</option>
+        <option value="공격">공격</option>
+        <option value="방어">방어</option>
+        <option value="집중">집중</option>
+        <option value="공격적인 방어">공격적인 방어</option>
+    </select>
+    <br>
+    <br>
     <!-- 테이블 래퍼 추가 -->
     <div class="table-wrapper">
         <table id="equipment-table">
@@ -216,7 +250,7 @@
             </tr>
             <tr>
                 <td><img src="./mhq/barr.png" width="24"><br>볼보로스</td>
-                <td>방어2</td>
+                <td>방어<br>방어</td>
                 <td>방어<br>공격적인 방어</td>
                 <td>공격적인 방어<br>공격적인 방어</td>
                 <td>가드 성능<br>가드 성능</td>
@@ -530,7 +564,44 @@
 
             });
         </script>
+ <script>
+    // JavaScript를 사용하여 드롭다운 리스트 선택에 따라 필터링 및 텍스트 색상 변경
+    document.addEventListener("DOMContentLoaded", function () {
+        const filterSelect = document.querySelector("#filter-select");
+        
+        // 드롭다운 리스트 값이 변경되었을 때 실행되는 함수
+        filterSelect.addEventListener("change", function () {
+            // 선택한 옵션의 값을 가져옵니다.
+            const selectedValue = filterSelect.value.trim();
 
+            // 정규식 패턴을 생성합니다. 포함되는 문구를 찾습니다.
+            const regexPattern = new RegExp(selectedValue, 'i'); // 'i' 옵션은 대소문자 구분 없이 검색
+
+            // 모든 행(row)을 가져옵니다.
+            const rows = document.querySelectorAll("#equipment-table tr");
+
+            // 각 행을 순환하면서 포함되는 문구가 있는 경우 텍스트 색상을 변경합니다.
+            rows.forEach(function (row) {
+                const cells = row.querySelectorAll("td");
+
+                // 두 번째 셀부터 마지막 셀까지 반복합니다.
+                for (let i = 1; i < cells.length; i++) {
+                    // 셀의 텍스트를 가져옵니다.
+                    const cellText = cells[i].textContent.trim(); // 공백을 제거하여 비교
+
+                    // 포함되는 문구가 있는 경우 텍스트 색상 변경
+                    if (regexPattern.test(cellText)) {
+                        cells[i].classList.add("highlight-text");
+                    } else {
+                        cells[i].classList.remove("highlight-text");
+                    }
+                }
+            });
+        });
+    });
+</script>
 </body>
+
+
 
 </html>
