@@ -406,14 +406,23 @@
 
             function shareSelectedData() {
                 result = result.replace(/<br>/g, "\n");
+                    // 선택된 무기 데이터에서 개행 문자(\n)를 공백으로 대체하여 문자열을 정리합니다.
+    var weaponData = selectedWeapon2.textContent.replace(/\n/g, " ");
+
+// 나머지 장비 데이터도 동일하게 처리합니다.
+var helmetData = selectedHelmet2.textContent.replace(/\n/g, " ");
+var armorData = selectedArmor2.textContent.replace(/\n/g, " ");
+var glovesData = selectedGloves2.textContent.replace(/\n/g, " ");
+var beltData = selectedBelt2.textContent.replace(/\n/g, " ");
+var shoesData = selectedShoes2.textContent.replace(/\n/g, " ");
                 // 나머지 코드는 그대로 유지
                 var shareText = "** 장비 목록**\n" +
-                    "[무기]" + selectedWeapon2.textContent + " 소재\n" +
-                    "[헬멧]" + selectedHelmet2.textContent + " 소재\n" +
-                    "[방어구]" + selectedArmor2.textContent + " 소재\n" +
-                    "[장갑]" + selectedGloves2.textContent + " 소재\n" +
-                    "[허리띠]" + selectedBelt2.textContent + " 소재\n" +
-                    "[신발]" + selectedShoes2.textContent + " 소재\n\n" +
+                    "▷ 무기:"+weaponData + " 소재\n" +
+                    "▷ 헬멧:"+ helmetData+ " 소재\n" +
+                    "▷ 방어구:"+ armorData+ " 소재\n" +
+                    "▷ 장갑:"+ glovesData+ " 소재\n" +
+                    "▷ 허리띠:"+ beltData + " 소재\n" +
+                    "▷ 신발:" + shoesData + " 소재\n\n" +
                     "**발동 스킬**\n" + result+"\n\nhttps://mhnow.github.io/";
 
                 // 클립보드에 복사
