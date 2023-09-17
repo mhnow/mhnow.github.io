@@ -167,8 +167,8 @@
 </head>
 
 <body>
-    <h1>Monster Hunter Now - Builder</h1>
-    <h3>https://blog.naver.com/huntnow</h3>   
+    <h1>Monster Hunter Now - Builder</h1> 
+    <h3>https://blog.naver.com/huntnow</h3> 
     
     <label for="filter-select">필터:</label>
     <select id="filter-select">
@@ -407,14 +407,14 @@
             function shareSelectedData() {
                 result = result.replace(/<br>/g, "\n");
                 // 나머지 코드는 그대로 유지
-                var shareText = "MHNOW 빌더를 통해 구성된 스킬은 다음과 같습니다.\n\n" +
+                var shareText = "** 장비 목록**\n" +
                     "[무기]" + selectedWeapon2.textContent + " 소재\n" +
                     "[헬멧]" + selectedHelmet2.textContent + " 소재\n" +
                     "[방어구]" + selectedArmor2.textContent + " 소재\n" +
                     "[장갑]" + selectedGloves2.textContent + " 소재\n" +
                     "[허리띠]" + selectedBelt2.textContent + " 소재\n" +
                     "[신발]" + selectedShoes2.textContent + " 소재\n\n" +
-                    "[발동 스킬]\n" + result+"\n\nhttps://blog.naver.com/huntnow";
+                    "**발동 스킬**\n" + result+"\n\nhttps://mhnow.github.io/";
 
                 // 클립보드에 복사
                 var textArea = document.createElement("textarea");
@@ -601,7 +601,7 @@
     });
 </script>
 </body>
-
+ 
 
 
 </html>

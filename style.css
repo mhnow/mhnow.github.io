@@ -1,0 +1,71 @@
+/* 추가된 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.inventory {
+    width: 300px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 각 아이템에 스타일 추가 */
+.item {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.2s; /* 부드러운 호버 효과 */
+    display: flex;
+    align-items: center;
+}
+
+/* 아이템 이미지 스타일 */
+.item img {
+    width: 64px; /* 이미지 크기 조정 */
+    height: 64px;
+    margin-right: 10px; /* 이미지와 텍스트 간격 조정 */
+}
+
+/* 아이템 정보 스타일 */
+.item-info {
+    flex-grow: 1; /* 아이템 정보 영역을 남은 공간만큼 확장 */
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.item-options {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 각 아이템의 고유한 스타일 지정 */
+.weapon { background-color: #f5a623; }
+.helmet { background-color: #4a90e2; }
+.armor { background-color: #7ed321; }
+.gloves { background-color: #d0021b; }
+.shoes { background-color: #417505; }
+.belt { background-color: #9013fe; }
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item:hover {
+    background-color: #ddd;
+}
